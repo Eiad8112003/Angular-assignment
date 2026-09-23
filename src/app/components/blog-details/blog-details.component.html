@@ -1,0 +1,182 @@
+@if (article(); as item) {
+  <!-- Hero Banner Header -->
+  <section class="article-hero" [style.background-image]="'linear-gradient(to bottom, rgba(13,13,15,0.7), rgba(9,9,11,0.95)), url(' + item.heroImage + ')'">
+    <div class="hero-content">
+      
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a routerLink="/home"><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <span class="sep">&gt;</span>
+        <a routerLink="/blog">المدونة</a>
+        <span class="sep">&gt;</span>
+        <span class="current">{{ item.category }}</span>
+      </nav>
+
+      <!-- Category & Meta Row -->
+      <div class="meta-row">
+        <span class="badge-cat">{{ item.category }}</span>
+        <span class="meta-item"><i class="fa-regular fa-calendar"></i> {{ item.date }}</span>
+        <span class="meta-item"><i class="fa-regular fa-clock"></i> {{ item.readTime }}</span>
+      </div>
+
+      <!-- Main Article Title -->
+      <h1 class="main-title">{{ item.title }}</h1>
+
+      <!-- Author Badge -->
+      <div class="author-badge">
+        <img [src]="item.authorAvatar" [alt]="item.authorName" class="author-img" />
+        <div class="author-info">
+          <span class="name">{{ item.authorName }}</span>
+          <span class="role">{{ item.authorRole }}</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Article Layout Section -->
+  <section class="article-layout-section">
+    <div class="layout-container">
+      
+      <!-- Sidebar (Left side in RTL) -->
+      <aside class="article-sidebar">
+        
+        <!-- Table of Contents -->
+        <div class="toc-box">
+          <h3 class="toc-title">
+            <i class="fa-solid fa-[#ff5500] fa-bars-staggered"></i>
+            <span>محتويات المقال</span>
+          </h3>
+          <ol class="toc-list">
+            @for (sec of item.sections; track $index) {
+              <li>
+                <span class="num">{{ $index + 1 }}</span>
+                <span class="txt">{{ sec.title }}</span>
+              </li>
+            }
+          </ol>
+        </div>
+
+        <!-- Meta Quick Stats -->
+        <div class="quick-stats-row">
+          <div class="stat-box">
+            <i class="fa-regular fa-clock icon"></i>
+            <span class="val">{{ item.readTime }}</span>
+            <span class="lbl">وقت القراءة</span>
+          </div>
+          <div class="stat-box">
+            <i class="fa-regular fa-calendar icon"></i>
+            <span class="val">{{ item.date }}</span>
+            <span class="lbl">تاريخ النشر</span>
+          </div>
+        </div>
+
+        <!-- Callout Promo Box -->
+        <div class="promo-box">
+          <div class="promo-icon"><i class="fa-regular fa-envelope"></i></div>
+          <h4 class="promo-title">لا تفوت جديدنا</h4>
+          <p class="promo-desc">اشترك للحصول على أحدث المقالات والدروس مباشرة.</p>
+          <a routerLink="/home" class="promo-btn">تصفح المزيد</a>
+        </div>
+
+      </aside>
+
+      <!-- Article Main Body (Right side in RTL) -->
+      <main class="article-body">
+        
+        <!-- Quote Callout -->
+        <div class="quote-callout">
+          <p class="quote-text">"{{ item.quote }}"</p>
+        </div>
+
+        <!-- Intro Paragraph -->
+        <p class="intro-p">{{ item.introText }}</p>
+
+        <!-- Sections Loop -->
+        <div class="sections-wrapper">
+          @for (sec of item.sections; track sec.title) {
+            <div class="section-block">
+              <h2 class="sec-heading">
+                <i class="fa-solid fa-camera camera-ic"></i>
+                <span>{{ sec.title }}</span>
+              </h2>
+              <p class="sec-body">{{ sec.content }}</p>
+            </div>
+          }
+        </div>
+
+        <!-- Tags Row -->
+        <div class="tags-box">
+          <span class="tags-lbl"><i class="fa-solid fa-tag"></i> الوسوم:</span>
+          <div class="tags-list">
+            @for (tag of item.tags; track tag) {
+              <span class="tag-pill">{{ tag }}</span>
+            }
+          </div>
+        </div>
+
+        <!-- Share Row -->
+        <div class="share-box">
+          <span class="share-lbl"><i class="fa-solid fa-share-nodes"></i> شارك المقال:</span>
+          <div class="share-btns">
+            <button class="share-btn" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></button>
+            <button class="share-btn" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></button>
+            <button class="share-btn" aria-label="Share Link"><i class="fa-solid fa-link"></i></button>
+          </div>
+        </div>
+
+        <!-- Author Bio Box -->
+        <div class="author-bio-card">
+          <img [src]="item.authorAvatar" [alt]="item.authorName" class="bio-avatar" />
+          <div class="bio-content">
+            <span class="bio-label">عن الكاتب</span>
+            <h3 class="bio-name">{{ item.authorName }}</h3>
+            <span class="bio-role">{{ item.authorRole }}</span>
+            <p class="bio-text">{{ item.authorBio }}</p>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </section>
+
+  <!-- Recommended Articles Section -->
+  <section class="recommended-section border-top">
+    <div class="recommended-container">
+      
+      <div class="rec-header">
+        <div>
+          <h2 class="rec-title">
+            <i class="fa-solid fa-fire text-orange-500"></i>
+            <span>مقالات قد تعجبك</span>
+          </h2>
+          <p class="rec-sub">استكشف المزيد من أحدث الدروس والتصنيفات</p>
+        </div>
+        <a routerLink="/blog" class="rec-btn">
+          <span>عرض الكل</span>
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+
+      <div class="rec-grid">
+        @for (rec of recommendedArticles; track rec.id) {
+          <a [routerLink]="['/blog', rec.id]" class="rec-card">
+            <div class="rec-img-wrap">
+              <img [src]="rec.image" [alt]="rec.title" class="rec-img" />
+              <span class="rec-cat">{{ rec.category }}</span>
+            </div>
+            <div class="rec-body">
+              <h3 class="rec-card-title">{{ rec.title }}</h3>
+              <div class="rec-meta">
+                <span>{{ rec.authorName }}</span>
+                <span>{{ rec.readTime }}</span>
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+
+    </div>
+  </section>
+}

@@ -1,0 +1,94 @@
+<section class="blog-header-section">
+  <div class="blog-header-container">
+    <div class="adasa-badge mb-3">
+      <span class="adasa-badge-dots">• •</span>
+      <span>المدونة</span>
+    </div>
+    <h1 class="blog-main-title">مدونة عدسة</h1>
+    <p class="blog-main-subtitle">
+      استكشف أحدث المقالات والدروس والنصائح في عالم التصوير الفوتوغرافي.
+    </p>
+
+    <!-- Search & Filter Row -->
+    <div class="filter-wrapper">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input 
+          type="text" 
+          placeholder="ابحث في المقالات والتصنيفات..." 
+          [value]="searchQuery()" 
+          (input)="updateSearch($event)"
+          class="search-input"
+        />
+      </div>
+
+      <div class="category-pills">
+        @for (cat of categories; track cat) {
+          <button 
+            (click)="setCategory(cat)"
+            [class.active]="selectedCategory() === cat"
+            class="pill-btn">
+            {{ cat }}
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-content-section">
+  <div class="blog-container">
+    
+    @if (filteredArticles().length > 0) {
+      <div class="blog-grid">
+        @for (article of filteredArticles(); track article.id) {
+          <div class="blog-card">
+            
+            <div class="card-img-container">
+              <img [src]="article.image" [alt]="article.title" class="article-img" />
+              <span class="category-badge">{{ article.category }}</span>
+            </div>
+
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="read-time">
+                  <i class="fa-regular fa-clock"></i>
+                  {{ article.readTime }}
+                </span>
+                <span class="post-date">{{ article.date }}</span>
+              </div>
+
+              <h3 class="card-title">{{ article.title }}</h3>
+              <p class="card-excerpt">{{ article.excerpt }}</p>
+            </div>
+
+            <div class="card-footer">
+              <div class="author-info">
+                <img [src]="article.authorAvatar" [alt]="article.authorName" class="author-avatar" />
+                <div class="author-details">
+                  <span class="author-name">{{ article.authorName }}</span>
+                  <span class="author-role">{{ article.authorRole }}</span>
+                </div>
+              </div>
+
+              <a [routerLink]="['/blog', article.id]" class="arrow-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="no-results">
+        <i class="fa-regular fa-folder-open no-results-icon"></i>
+        <h3>لا توجد نتائج متطابقة</h3>
+        <p>جرب البحث بكلمات أخرى أو اختر تصنيفاً مختلفاً.</p>
+        <button (click)="setCategory('الكل')" class="btn-primary mt-4">
+          عرض كل المقالات
+        </button>
+      </div>
+    }
+
+  </div>
+</section>

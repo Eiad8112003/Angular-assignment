@@ -1,0 +1,146 @@
+:host {
+  display: block;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #0a0a0a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 12px 24px;
+}
+
+.navbar-container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Brand Logo (Right in RTL) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.brand-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+  transition: color 0.2s ease;
+}
+
+.brand:hover .brand-name {
+  color: #ff7733;
+}
+
+.brand-sub {
+  color: #c27838;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Center Nav Pills */
+.nav-pills-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #161618;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: 9999px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nav-pill-item {
+  padding: 6px 20px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #d4d4d8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-pill-item:hover {
+  color: #ffffff;
+}
+
+.nav-pill-item.active {
+  background-color: #ff5500;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(255, 85, 0, 0.35);
+}
+
+/* Left Actions (RTL End) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-trigger {
+  background: transparent;
+  border: none;
+  color: #a1a1aa;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.search-trigger:hover {
+  color: #ffffff;
+}
+
+.btn-start-reading {
+  background-color: #ff5500;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(255, 85, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-start-reading:hover {
+  background-color: #e64d00;
+  box-shadow: 0 6px 20px rgba(255, 85, 0, 0.45);
+}
+
+@media (max-width: 768px) {
+  .nav-pills-wrapper {
+    display: none;
+  }
+}

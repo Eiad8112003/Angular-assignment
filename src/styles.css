@@ -1,0 +1,135 @@
+/* Adasa Design System & Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #09090b;
+  --card-bg: #121216;
+  --card-hover-bg: #18181f;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --primary-orange: #ff5500;
+  --primary-orange-hover: #e64d00;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-brand-sub: #c27838;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Tajawal', 'Readex Pro', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  direction: rtl;
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Background Grid & Ambient Glow */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.hero-radial-glow {
+  background: radial-gradient(circle at 50% 20%, rgba(255, 85, 0, 0.15) 0%, rgba(255, 85, 0, 0.03) 45%, transparent 70%);
+}
+
+/* Adasa UI Utility Components */
+.adasa-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.adasa-card:hover {
+  background-color: var(--card-hover-bg);
+  border-color: rgba(255, 85, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(255, 85, 0, 0.15);
+}
+
+.adasa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  background-color: rgba(255, 85, 0, 0.12);
+  border: 1px solid rgba(255, 85, 0, 0.25);
+  color: var(--primary-orange);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.adasa-badge-dots {
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.btn-orange {
+  background-color: var(--primary-orange);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-orange:hover {
+  background-color: var(--primary-orange-hover);
+  box-shadow: 0 6px 22px rgba(255, 85, 0, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-secondary-dark {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e4e4e7;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-secondary-dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5500;
+}

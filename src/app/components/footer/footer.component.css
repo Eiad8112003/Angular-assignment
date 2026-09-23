@@ -1,0 +1,242 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  background-color: #08080a;
+  background: radial-gradient(circle at 25% 40%, rgba(255, 85, 0, 0.08) 0%, rgba(8, 8, 10, 1) 60%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 64px 24px 24px;
+  color: #a1a1aa;
+  font-family: 'Tajawal', 'Readex Pro', sans-serif;
+  direction: rtl;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+/* Brand Column */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.brand-logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #ff5500;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(255, 85, 0, 0.35);
+}
+
+.brand-logo-text {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-desc {
+  font-size: 0.875rem;
+  color: #71717a;
+  line-height: 1.7;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: #141417;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+  background-color: rgba(255, 85, 0, 0.15);
+  border-color: rgba(255, 85, 0, 0.4);
+  color: #ff5500;
+  transform: translateY(-2px);
+}
+
+/* Column Titles & Orange Dash */
+.col-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.title-dash {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #ff5500;
+  border-radius: 2px;
+}
+
+/* Footer Links List */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #71717a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ff5500;
+}
+
+/* Newsletter Section */
+.newsletter-desc {
+  font-size: 0.85rem;
+  color: #71717a;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsletter-input {
+  width: 100%;
+  background-color: #121215;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-input::placeholder {
+  color: #52525b;
+}
+
+.newsletter-input:focus {
+  border-color: #ff5500;
+}
+
+.btn-subscribe {
+  width: 100%;
+  background-color: #ff5500;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);
+  font-family: inherit;
+}
+
+.btn-subscribe:hover {
+  background-color: #e64d00;
+  box-shadow: 0 6px 20px rgba(255, 85, 0, 0.45);
+}
+
+/* Bottom Footer */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: #52525b;
+}
+
+.heart {
+  color: #ff5500;
+  margin: 0 4px;
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: #52525b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal-links a:hover {
+  color: #a1a1aa;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}

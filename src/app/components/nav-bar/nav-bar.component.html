@@ -1,0 +1,68 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    
+    <!-- Logo & Brand (Right side in RTL) -->
+    <a routerLink="/home" class="brand">
+      <!-- Lens / Aperture SVG Icon -->
+      <div class="brand-icon">
+        <svg class="w-9 h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="url(#orange-gold-grad)" stroke-width="2.5" />
+          <circle cx="20" cy="20" r="7" stroke="#f97316" stroke-width="2" />
+          <path d="M20 2L24.5 13.5M38 20L26.5 24.5M20 38L15.5 26.5M2 20L13.5 15.5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="orange-gold-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f97316" />
+              <stop offset="0.5" stop-color="#eab308" />
+              <stop offset="1" stop-color="#ea580c" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Text Stack -->
+      <div class="brand-text">
+        <span class="brand-name">عدسة</span>
+        <span class="brand-sub">عالم التصوير الفوتوغرافي</span>
+      </div>
+    </a>
+
+    <!-- Center Nav Pills Container -->
+    <div class="nav-pills-wrapper">
+      <a 
+        routerLink="/home" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-pill-item">
+        الرئيسية
+      </a>
+      <a 
+        routerLink="/blog" 
+        routerLinkActive="active" 
+        class="nav-pill-item">
+        المدونة
+      </a>
+      <a 
+        routerLink="/about" 
+        routerLinkActive="active" 
+        class="nav-pill-item">
+        من نحن
+      </a>
+    </div>
+
+    <!-- Left Actions (Search & CTA Button in RTL) -->
+    <div class="nav-actions">
+      <!-- Search Magnifying Glass Icon -->
+      <button aria-label="Search" class="search-trigger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+
+      <!-- Button "ابدأ القراءة" -->
+      <a routerLink="/blog" class="btn-start-reading">
+        ابدأ القراءة
+      </a>
+    </div>
+
+  </div>
+</nav>
